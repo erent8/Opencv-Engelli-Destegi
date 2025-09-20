@@ -1,0 +1,24 @@
+# Python artefacts
+__pycache__/
+*.py[cod]
+*.so
+*.dylib
+
+# Virtual environments
+.venv/
+venv/
+
+# Tooling caches
+.mypy_cache/
+.pytest_cache/
+coverage.xml
+htmlcov/
+
+# Editors
+.vscode/
+.idea/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db

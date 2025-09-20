@@ -50,10 +50,10 @@ pip install -r requirements.txt
 ### 3. YOLOv8 Modelini İndir
 ```bash
 # Hafif model (önerilen)
-wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n.pt
+wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n.pt -P models/
 
 # Veya Python ile otomatik indirme
-python -c "from ultralytics import YOLO; YOLO('yolov8n.pt')"
+python -c "from ultralytics import YOLO; YOLO('models/yolov8n.pt')"
 ```
 
 ### 4. Kamerayı Etkinleştir
@@ -71,7 +71,13 @@ v4l2-ctl --list-devices
 
 ### Temel Çalıştırma
 ```bash
-python main.py
+PYTHONPATH=src python -m assistive_vision
+```
+
+Windows PowerShell icin:
+```powershell
+$env:PYTHONPATH="src"
+python -m assistive_vision
 ```
 
 ### Klavye Kısayolları
@@ -80,7 +86,7 @@ python main.py
 - `d`: Debug modunu aç/kapat
 
 ### Konfigürasyon
-`config.py` dosyasından ayarları değiştirebilirsiniz:
+`src/assistive_vision/config.py` dosyasından ayarları değiştirebilirsiniz:
 
 ```python
 # Kamera ayarları
@@ -99,17 +105,33 @@ TTS_VOLUME = 0.9  # Ses seviyesi
 ## 📁 Proje Yapısı
 
 ```
-├── main.py                 # Ana sistem dosyası
-├── config.py              # Konfigürasyon ayarları
-├── object_detector.py     # YOLOv8 nesne algılama
-├── distance_checker.py    # Mesafe kontrolü
-├── voice_alert.py         # Sesli uyarı sistemi
-├── navigation_guide.py    # 3 bölgeli navigasyon
-├── requirements.txt       # Python gereksinimleri
-├── README.md             # Bu dosya
-├── models/               # YOLO model dosyaları
-├── logs/                 # Log dosyaları
-└── data/                 # Veri dosyaları
+.
++-- docs/
++-- scripts/
+|   +-- install.sh
+|   +-- run_system.py
++-- src/
+|   +-- assistive_vision/
+|       +-- __init__.py
+|       +-- __main__.py
+|       +-- system.py
+|       +-- config.py
+|       +-- detection_logger.py
+|       +-- distance_checker.py
+|       +-- navigation_guide.py
+|       +-- object_detector.py
+|       +-- object_tracker.py
+|       +-- voice_alert.py
++-- tests/
+|   +-- test_continuous_alerts.py
+|   +-- test_windows.py
++-- data/
++-- logs/
++-- models/
+|   +-- yolov8n.pt
++-- requirements.txt
++-- README.md
++-- AGENTS.md
 ```
 
 ## 🔧 Performans Optimizasyonu
