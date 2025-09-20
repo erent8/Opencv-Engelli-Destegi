@@ -1,0 +1,27 @@
+# Raspberry Pi Engelli Destek Sistemi
+# Gerekli Python kütüphaneleri
+
+# === TEMEL KÜTÜPHANELER ===
+numpy>=1.21.0
+opencv-python>=4.5.0
+Pillow>=8.0.0
+
+# === YOLO VE MAKİNE ÖĞRENMESİ ===
+ultralytics>=8.0.0
+torch>=1.12.0
+torchvision>=0.13.0
+
+# === SESLİ UYARI ===
+pyttsx3>=2.90
+
+# === SİSTEM VE YARDIMCI ===
+pathlib2>=2.3.6
+psutil>=5.8.0
+
+# === RASPBERRY PI ÖZEL ===
+# RPi.GPIO>=0.7.1  # Sadece Raspberry Pi'de gerekli
+# picamera>=1.13   # Raspberry Pi kamerası için (opsiyonel)
+
+# === DEBUG VE GELİŞTİRME ===
+# matplotlib>=3.5.0  # Görselleştirme için (opsiyonel)
+# scipy>=1.7.0       # İleri matematik için (opsiyonel)
